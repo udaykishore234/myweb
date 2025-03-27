@@ -11,7 +11,8 @@
 	<properties>
 		<docker.image.prefix>kammana</docker.image.prefix>
 		<sonar.host.url>http://18.181.164.81:9000/</sonar.host.url>
-
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 	<dependencies>
 
@@ -24,6 +25,15 @@
 		</dependency>
 
 	</dependencies>
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.3.2</version> <!--Ensure compatibility with Java 17 -->
+		</plugin>
+	</plugins>
+	</build>
 	
 	<distributionManagement>
 		 <snapshotRepository>
